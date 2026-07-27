@@ -11,13 +11,13 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/Jyothsna-arbu/docker-devops-app.git',
-                }
+            }
         }
 
     stage('Docker Build') {
         steps {
             bat 'docker build -t ${ECR_REPO}:${IMAGE_TAG} .'        
-            }
+        }
     }
 
     stage('Docker Push to ECR') {
@@ -30,6 +30,6 @@ pipeline {
                 '''
             }      
         }
-      }
     }
+  }
 }
